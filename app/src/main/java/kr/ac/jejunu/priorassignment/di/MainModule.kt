@@ -1,17 +1,18 @@
 package kr.ac.jejunu.priorassignment.di
 
 import kr.ac.jejunu.priorassignment.data.ImageRepositoryImpl
-import kr.ac.jejunu.priorassignment.data.service.ImageService
+import kr.ac.jejunu.priorassignment.data.ImageService
 import kr.ac.jejunu.priorassignment.di.Interceptor.SearchClient
 import kr.ac.jejunu.priorassignment.domain.ImageRepository
-import kr.ac.jejunu.priorassignment.ui.viewmodel.MainImageSearchViewModel
+import kr.ac.jejunu.priorassignment.ui.main.adapter.MainRecyclerViewAdapter
+import kr.ac.jejunu.priorassignment.ui.main.viewmodel.MainImageSearchViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 
-private const val KAKAO_IMAGE_SEARCH_BASE_URL = "https://dapi.kakao.com/v2/search/image"
+private const val KAKAO_IMAGE_SEARCH_BASE_URL = "https://dapi.kakao.com/"
 
 var dataModule = module {
     single<ImageRepository> { ImageRepositoryImpl(get()) }
@@ -30,4 +31,8 @@ var viewModelModule = module {
     viewModel { MainImageSearchViewModel(get()) }
 }
 
-var mainModules = listOf(viewModelModule, dataModule)
+var adapterModule = module {
+    factory { MainRecyclerViewAdapter() }
+}
+
+var mainModules = listOf(viewModelModule, dataModule, adapterModule)

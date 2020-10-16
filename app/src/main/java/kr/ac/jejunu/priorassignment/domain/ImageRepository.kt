@@ -6,6 +6,7 @@ import io.reactivex.Single
 import kr.ac.jejunu.priorassignment.domain.model.ImageItem
 
 interface ImageRepository {
-    fun loadImageItems(searchWord:String):Completable
-    fun getImages():Observable<List<ImageItem>>
+    fun loadImageItems(searchWord: String): Completable
+    fun getImages(): Observable<LinkedHashMap<String, List<ImageItem>>>
+    fun getCollections(): Observable<List<String>>
 }

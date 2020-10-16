@@ -1,19 +1,22 @@
-package kr.ac.jejunu.priorassignment.data.response
+package kr.ac.jejunu.priorassignment.data
 
 import com.google.gson.annotations.SerializedName
+//
+//data class Document(
+//    @SerializedName("meta")
+//    val meta: Meta
+//)
+//
+//data class Meta(
+//    @SerializedName("total_count")
+//    val totalCount: Int,
+//    @SerializedName("pageable_count")
+//    val pageableCount: Int,
+//    @SerializedName("is_end")
+//    val isEnd: Boolean
+//)
 
 data class Document(
-    @SerializedName("meta")
-    val meta: Meta
-)
-
-data class Meta(
-    @SerializedName("total_count")
-    val totalCount: Int,
-    @SerializedName("pageable_count")
-    val pageableCount: Int,
-    @SerializedName("is_end")
-    val isEnd: Boolean,
     @SerializedName("documents")
     val documents: List<Image>
 )

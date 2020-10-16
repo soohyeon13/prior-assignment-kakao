@@ -33,4 +33,5 @@ ext {
     rxjava2_version = "2.2.10"
     rxjava2_android_version = "2.1.1"
     lifecycle_viewModel_version = '2.2.0'
+    glide_version = "4.11.0"
 }
